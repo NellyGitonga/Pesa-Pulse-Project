@@ -129,6 +129,13 @@ def email_domain_counts(customers: list[dict]) -> dict[str, int]:
 def to_dataframe(rows: list[dict]) -> pd.DataFrame:
     table = pd.DataFrame(rows)
     return table
+    
+
+
+    
+
+
+
 
 
     # raise NotImplementedError
@@ -173,6 +180,17 @@ if __name__ == "__main__":
 
         table = to_dataframe(customer_details)
         print(table)
+        
+        table = to_dataframe(customers)
+        table.to_csv("output/customers.csv", index=False)
+
+        city_table = pd.DataFrame(
+        list(city_results.items()),
+        columns=["city","customer_count"]
+        )
+        city_table.to_csv("output/city_counts.csv", index=False)
+
+        print("CSV saved successfully!")
 
         Path("visuals").mkdir(exist_ok=True)
         plot_distribution(
