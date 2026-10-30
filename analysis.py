@@ -195,11 +195,11 @@ if __name__ == "__main__":
         Path("visuals").mkdir(exist_ok=True)
         plot_distribution(
             city_results,
-            Path("visuals/customer_distribution.png")
+            Path("output/customer_distribution.png")
         )
         plot_distribution(
             email_results,
-            Path("visuals/email_distribution.png")
+            Path("output/email_distribution.png")
         )
 
     else:
